@@ -1,0 +1,8 @@
+#this is server name
+server:
+  port: 8800
+
+
+
+
+#this is logger properties
