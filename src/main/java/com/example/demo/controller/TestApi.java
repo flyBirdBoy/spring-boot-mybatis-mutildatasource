@@ -32,6 +32,7 @@ public class TestApi {
      */
     @RequestMapping("/master/select")
     public Object getaster(@RequestParam Integer id) {
+        System.out.println("id = [" + id + "]");
         return masterTestService.getM(id);
     }
 

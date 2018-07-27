@@ -44,9 +44,9 @@ public class MasterConfig {
     private String password;
 
     //初始化数据库连接
-    @Bean(name="masterDataSource")
+    @Bean(name = "masterDataSource")
     @Primary
-    public DataSource masterDataSource(){
+    public DataSource masterDataSource() {
         DruidDataSource masterDataSource = new DruidDataSource();
         masterDataSource.setDriverClassName(driverClassName);
         masterDataSource.setUrl(url);
@@ -56,16 +56,16 @@ public class MasterConfig {
     }
 
     //数据源事务管理器
-    @Bean(name="masterDataSourceTransactionManager")
+    @Bean(name = "masterDataSourceTransactionManager")
     @Primary
-    public DataSourceTransactionManager masterDataSourceTransactionManager(){
+    public DataSourceTransactionManager masterDataSourceTransactionManager() {
         return new DataSourceTransactionManager(masterDataSource());
     }
 
     //创建Session
-    @Bean(name="masterSqlSessionFactory")
+    @Bean(name = "masterSqlSessionFactory")
     @Primary
-    public SqlSessionFactory masterSqlSessionFactory(@Qualifier("masterDataSource") DataSource masterDataSource) throws Exception{
+    public SqlSessionFactory masterSqlSessionFactory(@Qualifier("masterDataSource") DataSource masterDataSource) throws Exception {
         final SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(masterDataSource);
         //MapperLocations(Resource[] mapperLocations)

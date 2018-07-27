@@ -43,8 +43,8 @@ public class ClusterOneConfig {
     private String password;
 
     //初始化数据库连接
-    @Bean(name="clusterOneDataSource")
-    public DataSource clusterOneDataSource(){
+    @Bean(name = "clusterOneDataSource")
+    public DataSource clusterOneDataSource() {
         DruidDataSource clusterDataSource = new DruidDataSource();
         clusterDataSource.setDriverClassName(driverClassName);
         clusterDataSource.setUrl(url);
@@ -54,16 +54,16 @@ public class ClusterOneConfig {
     }
 
     //数据源事务管理器
-    @Bean(name="clusterOneDataSourceTransactionManager")
-    public DataSourceTransactionManager clusterDataSourceTransactionManager(){
+    @Bean(name = "clusterOneDataSourceTransactionManager")
+    public DataSourceTransactionManager clusterDataSourceTransactionManager() {
         DataSourceTransactionManager dataSourceTransactionManager = new DataSourceTransactionManager();
         dataSourceTransactionManager.setDataSource(clusterOneDataSource());
         return dataSourceTransactionManager;
     }
 
     //创建Session
-    @Bean(name="clusterOneSqlSessionFactory")
-    public SqlSessionFactory clusterSqlSessionFactory(@Qualifier("clusterOneDataSource") DataSource clusterDataSource) throws Exception{
+    @Bean(name = "clusterOneSqlSessionFactory")
+    public SqlSessionFactory clusterSqlSessionFactory(@Qualifier("clusterOneDataSource") DataSource clusterDataSource) throws Exception {
         final SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(clusterDataSource);
         Resource[] resource = new PathMatchingResourcePatternResolver().getResources(ClusterOneConfig.MAPPER_LOCATION);

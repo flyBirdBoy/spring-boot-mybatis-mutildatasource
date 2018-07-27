@@ -17,12 +17,12 @@ public class CustomerTestService {
     @Autowired
     private CustomerMapper customerMapper;
 
-    public Customer getM(Integer id){
+    public Customer getM(Integer id) {
         return customerMapper.selectByPrimaryKey(id);
     }
 
 
-    public int instet(){
+    public int instet() {
         Customer customer = new Customer();
         customer.setAge(36);
         customer.setName("customer111");

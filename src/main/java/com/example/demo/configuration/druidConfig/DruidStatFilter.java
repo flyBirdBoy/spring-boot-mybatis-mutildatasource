@@ -11,11 +11,10 @@ import javax.servlet.annotation.WebInitParam;
  * @Date: Create in 18:31 2018/5/3
  * @Modified By:
  */
-@WebFilter(filterName="druidWebStatFilter",urlPatterns="/*", initParams={
-        @WebInitParam(name="exclusions",value="*.mp4,*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico,/druid/*")// 忽略资源
+@WebFilter(filterName = "druidWebStatFilter", urlPatterns = "/*", initParams = {
+        @WebInitParam(name = "exclusions", value = "*.mp4,*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico,/druid/*")// 忽略资源
 })
 public class DruidStatFilter extends WebStatFilter {
-
 
 
 }

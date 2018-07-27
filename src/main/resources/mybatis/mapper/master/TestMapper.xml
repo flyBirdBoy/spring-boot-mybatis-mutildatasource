@@ -3,10 +3,10 @@
 <mapper namespace="com.example.demo.dao.master.TestMapper">
 
     <resultMap id="BaseResultMap" type="com.example.demo.entity.master.Test">
-        <result column="id" property="id" />
-        <result column="name" property="name" />
-        <result column="age" property="age" />
-        <result column="sex" property="sex" />
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="age" property="age"/>
+        <result column="sex" property="sex"/>
     </resultMap>
 
     <parameterMap id="test" type="com.example.demo.entity.master.Test"/>
@@ -17,7 +17,7 @@
 
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="int">
         select
-        <include refid="Base_Column_List" />
+        <include refid="Base_Column_List"/>
         from test
         where id = #{userId}
     </select>

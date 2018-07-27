@@ -18,18 +18,17 @@ public class MasterTestService {
     private TestMapper testMapper;
 
 
-    public Test getM(Integer id){
+    public Test getM(Integer id) {
         return testMapper.selectByPrimaryKey(id);
     }
 
-    public int instet(){
+    public int instet() {
         Test test = new Test();
         test.setAge(35);
         test.setName("test王五");
         test.setSex("男");
         return testMapper.insertSelective(test);
     }
-
 
 
 }
